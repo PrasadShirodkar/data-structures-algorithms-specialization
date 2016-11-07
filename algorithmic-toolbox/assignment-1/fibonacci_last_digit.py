@@ -1,5 +1,5 @@
 # Uses python3
-import random
+import sys
 
 
 def get_fibonacci_last_digit_naive(n):
@@ -27,15 +27,6 @@ def get_fibonacci_last_digit_iterative(n):
     return fibonacci_last_digit[n]
 
 if __name__ == '__main__':
-    while True:
-        # Generate random integer n between 0 and 10 to the power 7 both inclusive
-        max = pow(10, 7)
-        n = random.randint(0, max)
-        print("Input nth Fibonacci number: " + str(n))
-        fib_recurse_result = get_fibonacci_last_digit_naive(n)
-        print("nth Fibonacci number's last digit by recursion: " + str(fib_recurse_result))
-        fib_iter_result = get_fibonacci_last_digit_iterative(n)
-        print("nth Fibonacci number's last digit by iteration: " + str(fib_iter_result))
-        if fib_recurse_result != fib_iter_result:
-            print("Solution failed. Please correct the solution")
-            break
+    input = sys.stdin.read()
+    n = int(input)
+    print(get_fibonacci_last_digit_iterative(n))
