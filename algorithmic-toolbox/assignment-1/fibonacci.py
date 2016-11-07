@@ -29,15 +29,10 @@ def calc_fib_iter(n):
         fib.append(fib[x - 1] + fib[x -2])
     return fib[n]
 
-if __name__ == '__main__':
-    while True:
-        # Generate random integer n between 0 and 45 both inclusive
-        n = random.randint(0, 45)
-        print("Input nth Fibonacci number: " + str(n))
-        fib_recurse_result = calc_fib(n)
-        print("nth Fibonacci number result by recursion: " + str(fib_recurse_result))
-        fib_iter_result = calc_fib_iter(n)
-        print("nth Fibonacci number result by iteration: " + str(fib_iter_result))
-        if fib_recurse_result != fib_iter_result:
-            print("Solution failed. Please correct the solution")
-            break
+while True:
+    n = int(input())
+    if 0 <= n <= 45:
+        print(calc_fib_iter(n))
+        break
+    else:
+        print("Input integer must be between 0 and 45")
