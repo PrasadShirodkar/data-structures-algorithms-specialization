@@ -1,5 +1,5 @@
 # Uses python3
-import random
+import sys
 
 
 def lcm_naive(a, b):
@@ -13,8 +13,7 @@ def lcm_naive(a, b):
 def lcm_efficient(a, b):
     product = a * b
     gcd = gcd_euclidean(a, b)
-    lcm = int(product / gcd)
-    return lcm
+    return product // gcd
 
 
 def gcd_euclidean(a, b):
@@ -30,16 +29,7 @@ def gcd_euclidean(a, b):
         return gcd_euclidean(dividend, d)
 
 
-while True:
-    # Generate random integer n between 1 and 10 to the power 9 both inclusive
-    max = pow(10, 9)
-    a = random.randint(1, max)
-    b = random.randint(1, max)
-    print(a, b)
-    lcm_eff = lcm_efficient(a, b)
-    print("lcm_efficient: " + str(lcm_eff))
-    lcm_slow = lcm_naive(a, b)
-    print("lcm naive: " + str(lcm_slow))
-    if lcm_eff != lcm_slow:
-        print("Solution failed. Please correct the solution")
-        break
+if __name__ == '__main__':
+    input = sys.stdin.read()
+    a, b = map(int, input.split())
+    print(lcm_efficient(a, b))
